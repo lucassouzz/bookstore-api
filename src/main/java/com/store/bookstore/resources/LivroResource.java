@@ -52,8 +52,12 @@ public class LivroResource {
 		Livro newObj = livroService.create(id_cat, obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/livros/{id}").buildAndExpand(newObj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
-		
 	}
 	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Integer id){
+		livroService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 	
 }

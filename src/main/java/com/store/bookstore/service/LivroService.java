@@ -49,6 +49,12 @@ public class LivroService {
 		obj.setCategoria(categoria);
 		return repository.save(obj);
 	}
+
+	public void delete(Integer id) {
+		Livro livro = this.findById(id);
+		repository.delete(livro);
+		return;
+	}
 	
 
 }
